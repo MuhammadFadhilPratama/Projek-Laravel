@@ -7,12 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Berita extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
 
     public function category()
     {
         return $this->belongsTo(category::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

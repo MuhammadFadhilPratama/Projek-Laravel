@@ -14,7 +14,9 @@ class DashboardBeritaController extends Controller
      */
     public function index()
     {
-        return view('dashboard.berita.index');
+        return view('dashboard.berita.index',[
+            'berita'=> Berita::all()
+        ]);
     }
 
     /**
@@ -46,7 +48,9 @@ class DashboardBeritaController extends Controller
      */
     public function show(Berita $berita)
     {
-        //
+        return view('dashboard.berita.show',[
+            'berita'=> $beritum
+        ]);
     }
 
     /**
