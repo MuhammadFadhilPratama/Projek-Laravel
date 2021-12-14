@@ -9,6 +9,7 @@
         </div><!-- /.container-fluid -->
         <!-- /.card-header -->
         <div class="card-body">
+          <a href="/dashboard/berita/create" class="btn btn-primary mb-3">Tambah Berita</a>
           <table id="example2" class="table table-bordered table-hover">
             <thead>
             <tr>
@@ -19,18 +20,18 @@
             </tr>
             </thead>
             <tbody>
+            @foreach ($berita as $berita)
             <tr>
-              <td>1</td>
-              <td>Isi Data</td>
-              <td>Isi Data</td>
-              <td>4</td>
+              <td>{{ $loop->interation }}</td>
+              <td>{{ $berita->judul_berita }}</td>
+              <td>{{ $berita->category->nama }}</td>
+              <td>
+                <a href="/dashboard/berita/{{ $berita->slug }}" class="btn btn-info"><i class="far fa-eye nav-icon"></i></a>
+                <a href="" class="btn btn-warning"><i class="far fa-edit nav-icon"></i></a>
+                <a href="" class="btn btn-danger"><i class="nav-icon fas fa-trash-alt"></i></a>
+              </td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Isi Data</td>
-              <td>Isi Data</td>
-              <td>5</td>
-            </tr>
+            @endforeach
           </table>
         </div>
         <!-- /.card-body -->
